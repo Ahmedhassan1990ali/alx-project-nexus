@@ -25,7 +25,23 @@ schema_view = get_schema_view(
    openapi.Info(
       title="My Project API",
       default_version='v1',
-      description="API docs",
+      description="""
+Welcome to the **Ecommerce API** 👋  
+
+### Authentication
+- Obtain a JWT token at `/api/token/`
+- Refresh your token at `/api/token/refresh/`
+- Add it to requests as:  
+  `Authorization: Bearer <your_token>`
+
+### Endpoints
+- **Products** → `/api/products/`
+- **Categories** → `/api/categories/`
+
+### Notes
+- Only staff can create/update/delete products or categories.
+- Anyone can view (read-only) product lists.
+      """,
    ),
    public=True,
    permission_classes=(permissions.AllowAny,),
