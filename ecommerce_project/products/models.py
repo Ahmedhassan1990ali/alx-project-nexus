@@ -19,5 +19,11 @@ class Product(models.Model):
     updated_by = models.ForeignKey(User,on_delete=models.PROTECT,related_name="products")
     updated_at = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        indexes = [
+            models.Index(fields=["price"]),
+            models.Index(fields=["-updated_at"]),
+        ]
+
     def __str__(self):
         return self.name
