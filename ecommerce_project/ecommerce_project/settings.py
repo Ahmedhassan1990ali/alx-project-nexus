@@ -54,6 +54,7 @@ INSTALLED_APPS = [
 
     #3rd-party apps
     'rest_framework',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -171,4 +172,15 @@ SIMPLE_JWT = {
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     "AUTH_HEADER_TYPES": ("Bearer",),
     
+}
+
+SWAGGER_SETTINGS = {
+    "SECURITY_DEFINITIONS": {
+        "Bearer": {
+            "type": "apiKey",
+            "in": "header",
+            "name": "Authorization",
+            "description": "JWT Authorization header using the Bearer scheme. Example: 'Authorization: Bearer <token>'",
+        }
+    },
 }
